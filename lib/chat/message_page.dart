@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './message_data.dart';
+import './message_item.dart';
 
 class Message extends StatefulWidget {
   @override
@@ -6,8 +8,17 @@ class Message extends StatefulWidget {
 }
 
 class _MessageState extends State<Message> {
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: ListView.builder(
+        itemCount: messageData.length,
+        itemBuilder: (BuildContext context, int index) {
+          //传入messageData返回的列表
+          return MessageItem(messageData[index]);
+        },
+      ),
+    );
   }
 }
